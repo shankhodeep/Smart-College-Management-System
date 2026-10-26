@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Smart College Management System student and faculty dashboard." />
+  <title>EDUSmart | College Management</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="EDUSmart home">
+    <span class="brand-mark">E</span>
+    <span>EDU<span class="brand-light">Smart</span></span>
+    </a>
+
+      <p class="nav-label">WORKSPACE</p>
+      <nav class="navigation" aria-label="Main navigation">
+        <button class="nav-item active" data-section="overview"><span>▦</span> Overview</button>
+        <button class="nav-item" data-section="students"><span>♙</span> Students</button>
+        <button class="nav-item" data-section="schedule"><span>▤</span> Course schedule</button>
+        <button class="nav-item" data-section="notices"><span>◉</span> Notices <span class="nav-count" id="notice-count">0</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="online-dot"></div>
+        <div><strong>Demo workspace</strong><small>Local JSON database</small></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">COLLEGE PORTAL / ACADEMIC YEAR 2026–27</p>
+          <h1 id="page-title">Welcome User👋</h1>
+          <p class="subheading">Here's what's happening on your campus today.</p>
+        </div>
+        <div class="topbar-actions">
+          <label class="role-select-label" for="role-select">View as</label>
+          <select id="role-select" aria-label="Choose dashboard role">
+            <option value="student">Student</option>
+            <option value="admin">Faculty / Admin</option>
+          </select>
+          <div class="avatar" title="Demo user">SH</div>
+        </div>
+      </header>
+
+      <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+
+      <section id="overview-section" class="page-section">
+        <div class="welcome-card">
+          <div>
+            <span class="pill">YOUR CAMPUS, CONNECTED</span>
+            <h2 id="welcome-title">Learning starts with a clear plan.</h2>
+            <p id="welcome-copy">Keep track of your attendance, marks, classes and campus updates in one place.</p>
+          </div>
+          <div class="welcome-art" aria-hidden="true"><span>✦</span><div class="art-book">▤</div><i>✧</i></div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Total students</span><span class="stat-icon violet">♙</span></div><strong id="total-students">—</strong><small>Registered in the demo database</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Average attendance</span><span class="stat-icon green">✓</span></div><strong id="average-attendance">—</strong><small>Across all sample students</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Average marks</span><span class="stat-icon orange">↗</span></div><strong id="average-marks">—</strong><small>Out of 100</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Campus notices</span><span class="stat-icon blue">◉</span></div><strong id="total-notices">—</strong><small>Latest announcements</small></article>
+        </div>
+
+        <div class="content-grid">
+          <article class="panel">
+            <div class="panel-heading"><div><p class="eyebrow">ACADEMICS</p><h3 id="student-panel-title">My student profile</h3></div><span class="mini-badge">DEMO</span></div>
+            <div id="student-profile" class="profile-card"></div>
+            <div class="panel-divider"></div>
+            <div class="panel-heading compact"><h3>My progress</h3><span class="muted">Out of 100</span></div>
+            <div id="student-progress"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-heading"><div><p class="eyebrow">CAMPUS LIFE</p><h3>Latest notices</h3></div><button class="text-button" data-go="notices">View all →</button></div>
+            <div id="latest-notices" class="notice-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="students-section" class="page-section" hidden>
+        <div class="section-heading"><div><p class="eyebrow">DIRECTORY</p><h2>Student records</h2><p class="subheading">View students and update attendance or marks.</p></div></div>
+        <article class="panel">
+          <div class="panel-heading"><h3>All students</h3><input id="student-search" class="search-input" type="search" placeholder="Search students..." aria-label="Search students" /></div>
+          <div id="admin-add-student" class="admin-only" hidden>
+            <form id="add-student-form" class="inline-form">
+              <input name="name" placeholder="Full name" required maxlength="80" />
+              <input name="email" type="email" placeholder="Email address" required maxlength="120" />
+              <input name="course" placeholder="Course (e.g. B.Tech CSE)" required maxlength="80" />
+              <select name="year" required><option value="">Year</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option></select>
+              <button class="primary-button" type="submit">+ Add student</button>
+            </form>
+          </div>
+          <div class="table-wrap"><table><thead><tr><th>Student</th><th>Student ID</th><th>Course / Year</th><th>Attendance</th><th>Marks</th><th class="admin-only" hidden>Actions</th></tr></thead><tbody id="students-table"></tbody></table></div>
+        </article>
+      </section>
+
+      <section id="schedule-section" class="page-section" hidden>
+        <div class="section-heading"><div><p class="eyebrow">PLAN YOUR WEEK</p><h2>Course schedule</h2><p class="subheading">A sample timetable for the demo college.</p></div></div>
+        <article class="panel"><div class="panel-heading"><h3>Weekly classes</h3><span class="mini-badge">MON — FRI</span></div><div id="schedule-list" class="schedule-list"></div></article>
+      </section>
+
+      <section id="notices-section" class="page-section" hidden>
+        <div class="section-heading"><div><p class="eyebrow">STAY INFORMED</p><h2>Campus notices</h2><p class="subheading">Announcements and important updates.</p></div></div>
+        <article class="panel admin-only" id="notice-form-panel" hidden>
+          <div class="panel-heading"><h3>Publish a notice</h3></div>
+          <form id="notice-form" class="notice-form"><input name="title" placeholder="Notice title" required maxlength="120" /><textarea name="message" placeholder="Write the announcement..." required maxlength="1000" rows="3"></textarea><button class="primary-button" type="submit">Publish notice</button></form>
+        </article>
+        <div id="all-notices" class="notice-grid"></div>
+      </section>
+
+      <footer class="footer"><span>© 2026 EDUSmart · Student PBL demo</span><span>Built with HTML, CSS, JavaScript & Node.js</span></footer>
+    </main>
+  </div>
+</body>
+</html>

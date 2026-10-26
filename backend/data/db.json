@@ -1,0 +1,95 @@
+{
+  "students": [
+    {
+      "id": "STU001",
+      "name": "Aarav Sharma",
+      "email": "aarav@example.com",
+      "course": "B.Tech CSE",
+      "year": "2nd Year",
+      "attendance": 88,
+      "marks": 86
+    },
+    {
+      "id": "STU002",
+      "name": "Priya Das",
+      "email": "priya@example.com",
+      "course": "B.Tech CSE",
+      "year": "2nd Year",
+      "attendance": 94,
+      "marks": 91
+    },
+    {
+      "id": "STU003",
+      "name": "Rohan Sen",
+      "email": "rohan@example.com",
+      "course": "BCA",
+      "year": "1st Year",
+      "attendance": 76,
+      "marks": 72
+    }
+  ],
+  "notices": [
+    {
+      "id": "NOTICE1793032807423195",
+      "title": "TEST NOTICE",
+      "message": "This is a test notice.",
+      "date": "2026-10-26"
+    },
+    {
+      "id": "NOTICE1793032746978689",
+      "title": "Holiday",
+      "message": "There is no holiday tomorrow.",
+      "date": "2026-10-26"
+    },
+    {
+      "id": "NOTICE001",
+      "title": "PBL Project Submission",
+      "message": "Submit your Project-Based Learning project before the announced deadline.",
+      "date": "2026-10-26"
+    },
+    {
+      "id": "NOTICE002",
+      "title": "Library Hours",
+      "message": "The library is open from 9:00 AM to 5:00 PM on working days.",
+      "date": "2026-10-25"
+    }
+  ],
+  "schedule": [
+    {
+      "day": "Monday",
+      "time": "09:00 - 10:00",
+      "subject": "Data Structures",
+      "room": "Room 204"
+    },
+    {
+      "day": "Monday",
+      "time": "10:15 - 11:15",
+      "subject": "Database Management Systems",
+      "room": "Lab 2"
+    },
+    {
+      "day": "Tuesday",
+      "time": "11:30 - 12:30",
+      "subject": "Python Programming",
+      "room": "Room 105"
+    },
+    {
+      "day": "Wednesday",
+      "time": "09:00 - 10:00",
+      "subject": "Computer Networks",
+      "room": "Room 301"
+    },
+    {
+      "day": "Thursday",
+      "time": "13:00 - 14:00",
+      "subject": "Software Engineering",
+      "room": "Room 202"
+    },
+    {
+      "day": "Friday",
+      "time": "10:15 - 11:15",
+      "subject": "Mathematics",
+      "room": "Room 108"
+    }
+  ]
+}
