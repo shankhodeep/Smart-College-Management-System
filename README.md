@@ -25,7 +25,7 @@ A beginner-friendly full-stack Project-Based Learning (PBL) demo for managing ba
 - Responsive layout for desktop and mobile
 - No separate database server required
 
-##🚀🚀 Live Demo: https://smartcollegemanagementsystem.vercel.app/
+## 🚀🚀 Live Demo: https://smartcollegemanagementsystem.vercel.app/
 
 ## Project structure
 
